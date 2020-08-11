@@ -21,7 +21,16 @@ body {
   line-height: 1.5;
   color: var(--c-text);
 }
-
+.DARK .nav-bar{
+  background: #fff!important;
+}
+.DARK a{
+  background: #001529!important;
+  color:#fff!important;
+}
+.DARK .container{
+  background: #636e72!important;
+}
 .nav-bar {
   position: fixed;
   top: 0;
