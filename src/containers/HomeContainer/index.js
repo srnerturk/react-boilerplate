@@ -7,7 +7,7 @@ import UserList from '../../components/user-list';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import MuiAlert from '@material-ui/lab/Alert';
-import { types } from '../../actions/actionTypes';
+import  types  from '../../actions/actionTypes';
 function Alert(props) {
   return <MuiAlert elevation={6} variant='filled' {...props} />;
 }
@@ -33,7 +33,7 @@ function HomeContainer() {
     const theme = themeState.theme;
     console.log(theme);
     dispatch({
-      type: 'CHANGE_THEME',
+      type: types.CHANGE_THEME,
       payload: theme === 'LIGHT' ? 'DARK' : 'LIGHT',
     });
   };
