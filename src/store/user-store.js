@@ -6,10 +6,10 @@ import { applyMiddleware } from '../middleware';
 const UserStoreContext = createContext();
 
 const UserStoreProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(userReducer, initialState);
-  const actions = useActions(state, applyMiddleware(dispatch));
+  const [userState, dispatch] = useReducer(userReducer, initialState);
+  const actions = useActions(userState, applyMiddleware(dispatch));
   return (
-    <UserStoreContext.Provider value={{ state, actions }}>
+    <UserStoreContext.Provider value={{ userState, actions }}>
       {children}
     </UserStoreContext.Provider>
   );

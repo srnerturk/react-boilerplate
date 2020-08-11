@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function HomeContainer() {
-  const { state, actions } = useContext(UserStoreContext);
+  const { userState, actions } = useContext(UserStoreContext);
   const { themeState, dispatch } = useContext(ThemeStoreContext);
   const classes = useStyles();
 
@@ -60,17 +60,17 @@ function HomeContainer() {
       >
         CHANGE THEME
       </Button>
-      <UserList users={state.users} />
-      <Backdrop className={classes.backdrop} open={state.loading}>
+      <UserList users={userState.users} />
+      <Backdrop className={classes.backdrop} open={userState.loading}>
         <CircularProgress color='inherit' />
       </Backdrop>
 
-      {state.error !== '' ? (
+      {userState.error !== '' ? (
         <Alert
           style={{ position: 'fixed', top: '84px', left: '20px' }}
           severity='error'
         >
-          {state.error}
+          {userState.error}
         </Alert>
       ) : (
         ''
