@@ -1,30 +1,17 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { THEME } from '../constants';
+import React, { createContext, useReducer } from 'react';
+import { reducer, initialState } from '../reducers';
+import { useActions } from '../actions/actions';
+import { applyMiddleware } from '../middleware';
 
-export const StoreContext = createContext(null);
+const StoreContext = createContext();
 
-export function StoreProvider({ children }) {
-  const [theme, themeSet] = useState(null);
-  useEffect(() => {
-    const theme = localStorage.getItem('THEME') || 'THEME.LIGHT';
-    themeSet(theme);
-  }, []);
-
-  const changeTheme = (theme) => {
-    themeSet(theme);
-    localStorage.setItem('THEME', theme);
-  };
-  useEffect(() => {
-    if (!theme) return;
-    const $html = document.querySelector('html');
-    $html.classList.remove(...$html.classList);
-    $html.classList.add(theme.toString());
-  }, [theme]);
-
+const StoreProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const actions = useActions(state, applyMiddleware(dispatch));
   return (
-    <StoreContext.Provider value={{ theme, changeTheme }}>
+    <StoreContext.Provider value={{ state, actions }}>
       {children}
     </StoreContext.Provider>
   );
-}
-export default StoreContext;
+};
+export { StoreContext, StoreProvider };

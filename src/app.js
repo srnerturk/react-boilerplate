@@ -1,30 +1,34 @@
 import React from 'react';
-import { StoreProvider } from './store';
+import  {StoreProvider}  from './store';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { AnimatedSwitch } from 'react-router-transition';
 import HomeContainer from './containers/HomeContainer';
 import AboutContainer from './containers/AboutContainer';
 import './styles/app.css';
-
-function App({ Component, pageProps }) {
+import { createBrowserHistory } from 'history';
+export const appHistory = createBrowserHistory();
+function App() {
   return (
-    <Router>
+    <Router history={appHistory}>
       <StoreProvider>
         <div>
-          <nav>
-            <div className='container'>
-              <div className='logo'>
-                <Link className="link-btn" to='/'>Home Page</Link>
-                <Link className="link-btn" to='/about'>About Page</Link>
-              </div>
+          <nav className='nav-bar'>
+            <div className='nav-links'>
+              <Link className='link-btn' to='/'>
+                Home Page
+              </Link>
+              <Link className='link-btn' to='/about'>
+                About Page
+              </Link>
             </div>
           </nav>
+          <div className='content-wrapper'>
             <Route exact path='/'>
               <HomeContainer />
             </Route>
-            <Route exact path='/about'>
+            <Route path='/about'>
               <AboutContainer />
             </Route>
+          </div>
         </div>
       </StoreProvider>
     </Router>

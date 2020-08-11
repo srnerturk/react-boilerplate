@@ -1,9 +1,9 @@
 {
   "name": "react-boilerplate",
   "scripts": {
-    "start": "webpack --mode=development",
-    "build": "webpack --mode=production",
-    "dev": "webpack-dev-server"
+    "start": "webpack-dev-server --open",
+    "dev": "webpack --mode=development",
+    "build": "webpack --mode=production"
   },
   "version": "1.0.0",
   "description": "react boilerplate",
@@ -12,6 +12,10 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "axios": "^0.19.2",
+    "history": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.21",
@@ -22,6 +26,7 @@
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "@material-ui/lab": "^4.0.0-alpha.56",
     "babel-loader": "^8.1.0",
     "css-loader": "^4.2.1",
     "style-loader": "^1.2.1",

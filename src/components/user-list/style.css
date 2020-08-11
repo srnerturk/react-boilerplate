@@ -1,0 +1,12 @@
+.table-bordered {
+  border: 1px solid #ddd !important;
+}
+table {
+  margin-top:20px;
+}
+table caption {
+  padding: 0.5em 0;
+}
+table th {
+  border: 1px solid #bdbdbd;
+}
