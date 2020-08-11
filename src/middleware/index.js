@@ -1,10 +1,9 @@
 import types from '../actions/actionTypes';
-import req from '../utils/axiosInstance';
 import axios from 'axios';
 export const applyMiddleware = (dispatch) => (action) => {
   console.log(action);
   switch (action.type) {
-    case types.GET_HTTP_DATA:
+    case types.GET_USER_DATA:
       return axios
         .get(action.payload)
         .then((res) =>

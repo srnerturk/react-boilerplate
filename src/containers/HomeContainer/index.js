@@ -20,10 +20,10 @@ function HomeContainer() {
   const { state, actions } = useContext(StoreContext);
   const classes = useStyles();
   const getUserData = () => {
-    actions.loadHttpCallInfo('https://jsonplaceholder.typicode.com/users');
+    actions.loadUserData('https://jsonplaceholder.typicode.com/users');
   };
   const getUserDataWithError = () => {
-    actions.loadHttpCallInfo('no_api');
+    actions.loadUserData('no_api');
   };
   return (
     <div className='container'>
