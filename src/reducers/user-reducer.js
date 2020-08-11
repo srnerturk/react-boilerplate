@@ -6,7 +6,7 @@ const initialState = {
   error: '',
 };
 
-const reducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.HTTP_SUCCESS:
       return { ...state, error: '', users: action.payload, loading: false };
@@ -18,4 +18,4 @@ const reducer = (state = initialState, action) => {
       return { ...state, loading: true, };
   }
 };
-export { initialState, reducer };
+export { initialState, userReducer };

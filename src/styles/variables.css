@@ -1,11 +1,9 @@
-  
 :root {
-  --c-primary: white;
+  --c-primary: rgb(240, 242, 245);
   --c-text: black;
   --fade: 120ms;
 }
-
-.theme-dark {
-  --c-primary: black;
+.DARK {
+  --c-primary: #2d3436;
   --c-text: white;
 }
